@@ -8,35 +8,36 @@ class TabellBagTest {
 
 	@Test
 	void test() {
-		
+
 		BagADT<String> bag = new TabellBag<String>(2);
-		
-		assertEquals(0, bag.getCurrentSize());
-		assertTrue(bag.isEmpty());
-		
-		assertFalse(bag.contains("Eple"));
-		
-		assertTrue(bag.add("Eple"));
-		assertTrue(bag.add("Banan"));
-		assertFalse(bag.add("Pære"));
-		
-		assertEquals(2, bag.getCurrentSize());
-		assertFalse(bag.isEmpty());
-		
-		assertTrue(bag.contains("Eple"));
-		assertTrue(bag.contains("Banan"));
-		assertFalse(bag.contains("Pære"));
-		
-		assertNotNull(bag.remove());
-		assertNotNull(bag.remove());
-		assertNull(bag.remove());
-		
+
 		assertEquals(0, bag.getCurrentSize());
 		assertTrue(bag.isEmpty());
 
-		assertFalse(bag.contains("Eple"));
-		assertFalse(bag.contains("Banan"));
-		assertFalse(bag.contains("Pære"));
+		assertFalse(bag.contains("Per"));
+
+		assertTrue(bag.add("Per"));
+		assertTrue(bag.add("Bashar"));
+		assertFalse(bag.add("Alex"));
+
+		assertEquals(2, bag.getCurrentSize());
+		assertFalse(bag.isEmpty());
+
+		assertTrue(bag.contains("Per"));
+		assertTrue(bag.contains("Bashar"));
+		assertFalse(bag.contains("Alex"));
+
+		assertNotNull(bag.remove());
+		assertNotNull(bag.remove());
+		assertNull(bag.remove());
+
+		assertEquals(0, bag.getCurrentSize());
+		assertTrue(bag.isEmpty());
+
+		assertFalse(bag.contains("Per"));
+		assertFalse(bag.contains("Bashar"));
+		assertFalse(bag.contains("Alex"));
+
 	}
 
 }

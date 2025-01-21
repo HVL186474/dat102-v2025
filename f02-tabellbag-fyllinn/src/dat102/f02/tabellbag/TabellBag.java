@@ -1,5 +1,7 @@
 package dat102.f02.tabellbag;
 
+import java.util.Arrays;
+
 /**
  * En implementasjon av BagADT
  * 
@@ -37,30 +39,35 @@ public class TabellBag<T> implements BagADT<T> {
 	private boolean erFull() {
 		return antall == tabell.length;
 	}
-	
+
 	@Override
 	public boolean add(T newEntry) {
-		
+
 		if (erFull()) {
 			return false;
 		}
-		
+
 		tabell[antall] = newEntry;
+
 		antall++;
+
 		return true;
 	}
 
 	@Override
 	public T remove() {
-		
+
 		if (isEmpty()) {
 			return null;
 		}
-		
-		T element = tabell[antall-1];
-		tabell[antall-1] = null;
+
+		T temp = tabell[antall - 1];
+
+		tabell[antall - 1] = null;
+
 		antall--;
-		return element;
+
+		return temp;
 	}
 
 	@Override
@@ -72,7 +79,7 @@ public class TabellBag<T> implements BagADT<T> {
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -83,12 +90,13 @@ public class TabellBag<T> implements BagADT<T> {
 
 	@Override
 	public boolean contains(T anEntry) {
-		
+
 		for (int i = 0; i < antall; i++) {
 			if (tabell[i].equals(anEntry)) {
 				return true;
 			}
 		}
+
 		return false;
 	}
 
